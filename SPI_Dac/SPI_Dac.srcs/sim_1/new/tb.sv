@@ -22,11 +22,11 @@
 
 module tb();
     localparam hp = 5, d = 7;
-
+    localparam nrbit = 16;
     logic clk, rst, str, sclk;
     logic sclk, d0, sync;
     
-    top #(.nrbit(16)) topmodule (
+    top #(.nrbit(nrbit)) topmodule (
      .clk(clk),
      .rst(rst),
      .str(str),
@@ -36,7 +36,6 @@ module tb();
      );
 
     initial begin
-        sync = 1'b0;
         clk = 1'b0;
         forever #hp clk = ~clk;
         
@@ -50,10 +49,10 @@ module tb();
 
     initial begin
         str = 1'b0;
-        repeat(2*d) @(posedge clk);
+       // repeat(2*d) @(posedge clk);
         #1 str = 1'b1;
-        repeat(3*d) @(posedge clk);
-        #1 str = 1'b0;
+       // repeat(3*d) @(posedge clk);
+        #5 str = 1'b0;
     end
 
     initial begin
