@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.runs/synth_1/top.tcl"
+  variable script "D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,17 +76,17 @@ create_project -in_memory -part xc7k70tfbv676-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.cache/wt [current_project]
-set_property parent.project_path C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.xpr [current_project]
+set_property webtalk.parent_dir {D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.cache/wt} [current_project]
+set_property parent.project_path {D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.cache/ip [current_project]
+set_property ip_output_repo {d:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.srcs/sources_1/new/SPI.sv
-  C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv
+  {D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/SPI.sv}
+  {D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

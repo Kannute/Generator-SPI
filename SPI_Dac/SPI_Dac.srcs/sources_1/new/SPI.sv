@@ -46,10 +46,16 @@ module SPI #(parameter nrbit = 16)(
     always_comb begin
         nst = idle;
         case(st)
+        /*
             idle: nst = str ? start : idle;
-            start: nst = (bcnt == 3) ? data : start;
-            data: nst = (bcnt == nrbit - 1) ? highz : data; 
-            highz: nst = (bcnt == nrbit) ? idle : highz;
+            start: nst = (bcnt == 0) ? data : start;
+            data: nst = (bcnt == nrbit) ? highz : data; 
+            highz: nst = (bcnt == 0) ? idle : highz;
+        */
+            idle: nst = str ? start : idle;
+            start: nst = (bcnt == 1) ? data : start;
+            data: nst = (bcnt == 0) ? highz : data; 
+            highz: nst = (bcnt == 1) ? idle : highz;
         endcase
     end 
  
@@ -63,15 +69,17 @@ module SPI #(parameter nrbit = 16)(
         else if (en) 
             bcnt <= bcnt + 1'b1;
  
-    assign d0 = 1;
+    assign d0 = shreg[15];
     
     always @(posedge clk, posedge rst) 
         if (rst)
-            shreg <= {(nrbit){1'b1}};
+            //shreg <= {(nrbit){1'b1}};
+            shreg <= {8'b0, 1'b1, 7'b0};
         else if (en & st == data)
             shreg <= {shreg[nrbit-2:0], 1'b0};
         else if (st == start)
-            shreg <= {(nrbit){1'b1}};
+            //shreg <= {(nrbit){1'b1}};
+            shreg <= {8'b0, 1'b1, 7'b0};
       
  
 endmodule
