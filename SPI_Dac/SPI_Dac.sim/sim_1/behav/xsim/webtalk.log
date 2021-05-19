@@ -2,13 +2,16 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu May 13 13:11:09 2021
-# Process ID: 12788
-# Current directory: C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim\webtalk.jou
+# Start of session at: Wed May 19 20:11:17 2021
+# Process ID: 12032
+# Current directory: D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/Kacper/Desktop/JOS/GeneratorSPI/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu May 13 13:11:14 2021. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/Vivado/2020.2/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Thu May 13 13:11:14 2021...
+source D:/Projects/6th -notrace
+invalid command name "%"
+    while executing
+"% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current"
+    (file "D:/Projects/6th" line 1)
+INFO: [Common 17-206] Exiting Webtalk at Wed May 19 20:11:17 2021...
