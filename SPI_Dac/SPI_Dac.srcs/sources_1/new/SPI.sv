@@ -19,7 +19,7 @@ module SPI #(parameter nrbit = 16)(
     logic [nrbit-1:0] shreg;
     
     assign sync = (st == idle);
-    assign sclk = ~cdiv[3];
+    assign sclk = cdiv[3];
  
     always @(posedge clk, posedge rst) 
         if (rst)
@@ -30,7 +30,7 @@ module SPI #(parameter nrbit = 16)(
             cdiv <= cdiv + 1'b1;
  
     logic t;
-    wire en = ~t & sclk;
+    wire en = t & ~sclk;
     always @(posedge clk, posedge rst) 
         if (rst)
             t <= 1'b0;
@@ -54,8 +54,8 @@ module SPI #(parameter nrbit = 16)(
         */
             idle: nst = str ? start : idle;
             start: nst = (bcnt == 1) ? data : start;
-            data: nst = (bcnt == 0) ? highz : data; 
-            highz: nst = (bcnt == 1) ? idle : highz;
+            data: nst = (bcnt == nrbit) ? highz : data; 
+            highz: nst = (bcnt == 0) ? idle : highz;
         endcase
     end 
  

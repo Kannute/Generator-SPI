@@ -49,9 +49,9 @@ module tb();
 
     initial begin
         str = 1'b0;
-       // repeat(2*d) @(posedge clk);
+        repeat(2*d) @(posedge clk);
         #1 str = 1'b1;
-       // repeat(3*d) @(posedge clk);
+        repeat(3) @(posedge clk);
         #5 str = 1'b0;
     end
 
