@@ -2,7 +2,8 @@
 2020.2
 Nov 18 2020
 09:47:47
-C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,uvm,,,,,,
-C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,1621509014,systemVerilog,,,,tb,,uvm,,,,,,
-C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.srcs/sources_1/new/SPI.sv,1621507630,systemVerilog,,C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,,SPI,,uvm,,,,,,
-C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,1620903577,systemVerilog,,C:/Users/Kacper/Desktop/JOS/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,,top,,uvm,,,,,,
+D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/glbl.v,1621447487,verilog,,,,glbl,,uvm,,,,,,
+D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,1622065118,systemVerilog,,,,tb,,uvm,,,,,,
+D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/SPI.sv,1622065575,systemVerilog,,D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/generatorOfNumbers.sv,,SPI,,uvm,,,,,,
+D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/generatorOfNumbers.sv,1622065694,systemVerilog,,D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,,generatorOfNumbers,,uvm,,,,,,
+D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,1622064245,systemVerilog,,D:/Projects/6th semester/JOS/SPI_PROJECT/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,,top,,uvm,,,,,,

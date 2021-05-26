@@ -14,7 +14,10 @@ module top #(parameter nrbit = 16)(
     input str,
     output sclk,
     output logic d0,
-    output sync);
+    output sync
+//    output logic [7:0] generatedValue,
+//    output logic valueIsSent
+    );
 
  SPI #(.nrbit(nrbit)) dacspi(
      .clk(clk),
@@ -24,5 +27,12 @@ module top #(parameter nrbit = 16)(
      .d0(d0),
      .sync(sync)
     );
+//        generatorOfNumbers generator(
+//        .clk(clk),
+//        .rst(rst),
+//        .en(1),
+//        .outputValue(generatedValue),
+//        .sending(valueIsSent)
+//        );
     
 endmodule

@@ -8,12 +8,15 @@ module SPI #(parameter nrbit = 16)(
     output logic d0,
     output sync
     );
-    
+    //-----------------
+    logic [7:0] generatedValue;
+    logic valueIsSent;
+    //-----------------
     localparam cb = $clog2(nrbit);
     
     typedef enum {idle, start, data, highz} states_e;
     states_e st, nst;
-    
+
     logic [3:0] cdiv;
     logic [cb:0] bcnt;
     logic [nrbit-1:0] shreg;
@@ -31,6 +34,18 @@ module SPI #(parameter nrbit = 16)(
  
     logic t;
     wire en = t & ~sclk;
+    
+     //-----------------    
+    generatorOfNumbers generator(
+        .clk(clk),
+        .rst(rst),
+        .en(en & st == data),
+        .outputValue(generatedValue),
+        .sending(valueIsSent)
+        );
+    //-----------------
+    
+    
     always @(posedge clk, posedge rst) 
         if (rst)
             t <= 1'b0;
@@ -76,10 +91,13 @@ module SPI #(parameter nrbit = 16)(
             //shreg <= {(nrbit){1'b1}};
             shreg <= {8'b0, 1'b1, 7'b0};
         else if (en & st == data)
-            shreg <= {shreg[nrbit-2:0], 1'b0};
+           // shreg <= {shreg[nrbit-2:0], 1'b0};
+            if(valueIsSent)
+                shreg <= {8'b0,generatedValue};
         else if (st == start)
             //shreg <= {(nrbit){1'b1}};
-            shreg <= {8'b0, 1'b1, 7'b0};
+            //shreg <= {8'b0, 1'b1, 7'b0};
+            shreg <= {16'b0};
       
  
 endmodule

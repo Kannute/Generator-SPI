@@ -26,6 +26,8 @@ module tb();
     logic clk, rst, str, sclk;
     logic sclk, d0, sync;
     
+    logic [7:0] generatedValue;
+    logic valueIsSent;
     top #(.nrbit(nrbit)) topmodule (
      .clk(clk),
      .rst(rst),
