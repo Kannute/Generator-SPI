@@ -22,7 +22,7 @@ module generatorOfNumbers(
             end
         else if(en)
             if(currentValue == maxValue)
-                currentValue += 8'b0;
+                currentValue = 8'b0;
             else    
                 currentValue += 1'b1;
                 

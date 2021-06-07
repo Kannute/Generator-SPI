@@ -1,9 +1,0 @@
-0.7
-2020.2
-Nov 18 2020
-09:20:35
-/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.sim/sim_1/behav/xsim/glbl.v,1622065951,verilog,,,,glbl,,uvm,,,,,,
-/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,1622117441,systemVerilog,,,,tb,,uvm,,,,,,
-/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sources_1/new/SPI.sv,1622116012,systemVerilog,,/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sources_1/new/generatorOfNumbers.sv,,SPI,,uvm,,,,,,
-/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sources_1/new/generatorOfNumbers.sv,1622116697,systemVerilog,,/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,,generatorOfNumbers,,uvm,,,,,,
-/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sources_1/new/top.sv,1622110642,systemVerilog,,/home/stud2018/8luka/Desktop/JOS/proj/Generator-SPI-generator/SPI_Dac/SPI_Dac.srcs/sim_1/new/tb.sv,,top,,uvm,,,,,,

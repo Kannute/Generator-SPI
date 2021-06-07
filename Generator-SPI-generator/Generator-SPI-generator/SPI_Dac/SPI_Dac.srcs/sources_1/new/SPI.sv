@@ -1,5 +1,9 @@
 `timescale 1ns / 1ps
 
+/*
+Dodano output rdySpi, który informuje, 
+kiedy SPI przestaje przesy?a? dane
+*/
 module SPI #(parameter nrbit = 16)(
     input clk,
     input rst,
@@ -7,12 +11,10 @@ module SPI #(parameter nrbit = 16)(
     output sclk,
     output logic d0,
     output sync,
-    input [7:0] generatedValue
+    input [7:0] generatedValue,
+    output rdySpi
     );
-    //-----------------
-    //logic [7:0] generatedValue;
-    //logic valueIsSent;
-    //-----------------
+    
     localparam cb = $clog2(nrbit);
     
     typedef enum {idle, start, data, highz} states_e;
@@ -36,17 +38,7 @@ module SPI #(parameter nrbit = 16)(
     logic t;
     wire en = t & ~sclk;
     
-     //-----------------    
-//    generatorOfNumbers generator(
-//        .clk(clk),
-//        .rst(rst),
-//        .en(str),
-//        .outputValue(generatedValue)
-//        //.sending(valueIsSent)
-//        );
-    //-----------------
-    
-    
+
     always @(posedge clk, posedge rst) 
         if (rst)
             t <= 1'b0;
@@ -62,24 +54,18 @@ module SPI #(parameter nrbit = 16)(
     always_comb begin
         nst = idle;
         case(st)
-        /*
-            idle: nst = str ? start : idle;
-            start: nst = (bcnt == 0) ? data : start;
-            data: nst = (bcnt == nrbit) ? highz : data; 
-            highz: nst = (bcnt == 0) ? idle : highz;
-        */
+        
             idle: nst = str ? start : idle;
             start: nst = data;
-            data: nst = (bcnt == nrbit) ? highz : data; 
-            highz: nst = (bcnt == 0) ? idle : highz;
+            data: nst = (bcnt == nrbit) ? idle : data; 
+
         endcase
     end 
  
     always @(posedge clk, posedge rst) 
         if (rst)
             bcnt <= {(cb+1){1'b0}};
-        //else if (str)
-            //bcnt <= {(cb+1){1'b0}}; 
+
         else if (bcnt == nrbit)
             bcnt <= {(cb+1){1'b0}}; 
         else if (en) 
@@ -89,18 +75,14 @@ module SPI #(parameter nrbit = 16)(
     
     always @(posedge clk, posedge rst) 
         if (rst)
-            //shreg <= {(nrbit){1'b1}};
             shreg <= {16'b0};
         else if (en & st == data)
             shreg <= {shreg[nrbit-2:0], 1'b0};
-//            if(valueIsSent)
-//                shreg <= {8'b0,generatedValue};
         else if (st == start)
             shreg <= {8'b0,generatedValue};
-            //shreg <= {(nrbit){1'b1}};
-            //shreg <= {8'b0, 1'b1, 7'b0};
-            
-      
+           
+     assign rdySpi = (st == idle) ? 1'b1 : 1'b0;
+        
  
 endmodule
  

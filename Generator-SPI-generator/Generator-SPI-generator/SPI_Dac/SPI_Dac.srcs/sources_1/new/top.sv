@@ -1,12 +1,10 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-
-// Create Date: 13.05.2021 12:57:04
-// Design Name: 
-// Module Name: top
-
-//////////////////////////////////////////////////////////////////////////////////
-
+/*
+Dodana maszyna stanów.
+Liczby zostaj? wygenerowane, a nast?pnie wysy?ane po 
+jednym wci?ni?ciu przycisku str.
+*/
 
 module top #(parameter nrbit = 16)(
     input clk,
@@ -15,24 +13,51 @@ module top #(parameter nrbit = 16)(
     output sclk,
     output logic d0,
     output sync
-//    output logic [7:0] generatedValue,
-//    output logic valueIsSent
     );
  wire [7:0] generatedValue;
- //dopisac rdyspi kiedy spi skonczy przesylac dane
+ wire rdySpi;
+ 
+ typedef enum {idle, start_g, wait1, start_spi, data} states_e;
+ states_e st, nst;
+ 
+ always @(posedge clk, posedge rst) 
+        if (rst)
+            st <= idle;
+        else 
+            st <= nst;
+ 
+    always_comb begin
+        nst = idle;
+        case(st)
+            idle: nst = str ? start_g : idle;
+            start_g: nst = wait1;
+            wait1: nst = start_spi;
+            start_spi : nst = data;
+            data : nst = rdySpi ? start_g : data; 
+        endcase
+    end 
+/*
+SPI zaczyna prac?, gdy st == star_spi
+*/
  SPI #(.nrbit(nrbit)) dacspi(
      .clk(clk),
      .rst(rst),
-     .str(str),
+     .str(st == start_spi),
      .sclk(sclk),
      .d0(d0),
      .sync(sync),
-     .generatedValue(generatedValue)
+     .generatedValue(generatedValue),
+     .rdySpi(rdySpi)
     );
+ 
+ /*
+ Generator generuje kolejn? liczb?, 
+ gdy st == start_g
+ */
   generatorOfNumbers generator(
         .clk(clk),
         .rst(rst),
-        .en(str),
+        .en(st == start_g),
         .outputValue(generatedValue)
         );
     

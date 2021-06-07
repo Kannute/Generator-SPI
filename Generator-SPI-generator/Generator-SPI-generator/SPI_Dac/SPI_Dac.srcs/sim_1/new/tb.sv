@@ -57,11 +57,11 @@ module tb();
         #0 str = 1'b1;
         repeat(1) @(posedge clk);
         #1 str = 1'b0;
-        forever begin
-        #100000 str = 1'b1;
-        repeat(1) @(posedge clk);  
-        #5 str = 1'b0;  
-            end
+//        forever begin
+//        #100000 str = 1'b1;
+//        repeat(1) @(posedge clk);  
+//        #5 str = 1'b0;  
+//            end
 //        #1000000 str = 1'b1;
 //        repeat(1) @(posedge clk);  
 //        #5 str = 1'b0;     
