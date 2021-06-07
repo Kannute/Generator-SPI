@@ -10,6 +10,13 @@ module top #(parameter nrbit = 16)(
     input clk,
     input rst,
     input str,
+    /* 
+    ver - liczba okre?laj?ca rodzaj przesylanego sygnalu
+    00 - dane rosn?ce liniowo
+    01 - dane kwadratowe => albo maxValue albo zero
+    10 - sinus
+    */
+    input logic [1:0] ver, 
     output sclk,
     output logic d0,
     output sync
@@ -58,7 +65,8 @@ SPI zaczyna prac?, gdy st == star_spi
         .clk(clk),
         .rst(rst),
         .en(st == start_g),
+        .ver(ver),
         .outputValue(generatedValue)
         );
-    
+
 endmodule
