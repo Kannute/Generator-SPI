@@ -78,7 +78,7 @@ SPI zaczyna prac?, gdy st == star_spi
         .outputValue(generatedValue)
         );
         
-decoder vd (.clk(clk), .rst(rst), .dat_in(dato), .dat_decoded(ver));
+decoder vd (.clk(clk), .rst(rst), .dat_in(dati), .dat_decoded(ver));
 
 axi_uartlite_slave uart_axi (
   .s_axi_aclk(clk),        // input wire s_axi_aclk
@@ -111,9 +111,6 @@ axi_uartlite_slave uart_axi (
 
 
 master_axi # (.deep(mdeep)) master ( .clk(clk), .rst(rst),
-    .wadr(s_axi_awaddr), .awvld(s_axi_awvalid), .awrdy(s_axi_awready),
-    .wdat(s_axi_wdata), .wvld(s_axi_wvalid), .wrdy(s_axi_wready),
-    .brsp(s_axi_bresp), .bvld(s_axi_bvalid), .brdy(s_axi_bready),
     .radr(s_axi_araddr), .arvld(s_axi_arvalid), .arrdy(s_axiarready),
     .rdat(s_axi_rdata), .rvld(s_axi_rvalid), .rrdy(s_axi_rready),
     .data_rec(dati), .data_tr(dato), .addr(adr), .wr(wr), .rd(rd));
