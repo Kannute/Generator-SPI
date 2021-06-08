@@ -11,62 +11,79 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="697001fs"></ZoomEndTime>
-      <Cursor1Time time="303000fs"></Cursor1Time>
+      <ZoomStartTime time="376468048fs"></ZoomStartTime>
+      <ZoomEndTime time="665267067fs"></ZoomEndTime>
+      <Cursor1Time time="3841575000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="206"></NameColumnWidth>
-      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
-   <wvobject type="logic" fp_name="/tb/clk">
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/rst">
+   <wvobject fp_name="/tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/str">
+   <wvobject fp_name="/tb/str" type="logic">
       <obj_property name="ElementShortName">str</obj_property>
       <obj_property name="ObjectShortName">str</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/sclk">
+   <wvobject fp_name="/tb/sclk" type="logic">
       <obj_property name="ElementShortName">sclk</obj_property>
       <obj_property name="ObjectShortName">sclk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/d0">
+   <wvobject fp_name="/tb/d0" type="logic">
       <obj_property name="ElementShortName">d0</obj_property>
       <obj_property name="ObjectShortName">d0</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/sync">
+   <wvobject fp_name="/tb/sync" type="logic">
       <obj_property name="ElementShortName">sync</obj_property>
       <obj_property name="ObjectShortName">sync</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/topmodule/dacspi/st">
+   <wvobject fp_name="/tb/topmodule/dacspi/st" type="array">
       <obj_property name="ElementShortName">st[31:0]</obj_property>
       <obj_property name="ObjectShortName">st[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/topmodule/dacspi/nst">
+   <wvobject fp_name="/tb/topmodule/dacspi/nst" type="array">
       <obj_property name="ElementShortName">nst[31:0]</obj_property>
       <obj_property name="ObjectShortName">nst[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/topmodule/dacspi/shreg">
+   <wvobject fp_name="/tb/topmodule/dacspi/shreg" type="array">
       <obj_property name="ElementShortName">shreg[15:0]</obj_property>
       <obj_property name="ObjectShortName">shreg[15:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/topmodule/dacspi/cdiv">
+   <wvobject fp_name="/tb/topmodule/dacspi/cdiv" type="array">
       <obj_property name="ElementShortName">cdiv[3:0]</obj_property>
       <obj_property name="ObjectShortName">cdiv[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/topmodule/dacspi/bcnt">
+   <wvobject fp_name="/tb/topmodule/dacspi/bcnt" type="array">
       <obj_property name="ElementShortName">bcnt[4:0]</obj_property>
       <obj_property name="ObjectShortName">bcnt[4:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/topmodule/dacspi/en">
+   <wvobject fp_name="/tb/topmodule/dacspi/en" type="logic">
       <obj_property name="ElementShortName">en</obj_property>
       <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/topmodule/generator/ver" type="array">
+      <obj_property name="ElementShortName">ver[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ver[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/topmodule/generator/outputValue" type="array">
+      <obj_property name="ElementShortName">outputValue[7:0]</obj_property>
+      <obj_property name="ObjectShortName">outputValue[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
 </wave_config>

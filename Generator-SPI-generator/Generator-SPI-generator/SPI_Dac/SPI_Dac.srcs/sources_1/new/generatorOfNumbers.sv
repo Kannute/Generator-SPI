@@ -14,7 +14,7 @@ module generatorOfNumbers(
     logic[7:0] maxValue;
     logic[7:0] currentValue;
     logic [7:0] sineValue;
-    sinus_gen singen (.clk(clk) , .sinus(sineValue), .enable(en) );
+    sinus_gen singen (.clk(clk) , .rst(rst), .sinus(sineValue), .enable(en) );
     always @(posedge clk, posedge rst) 
         if (rst)
             maxValue = 255;

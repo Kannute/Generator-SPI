@@ -37,7 +37,27 @@ module tb();
      .d0(d0),
      .sync(sync)
      );
-
+    
+////------------------------------------------------------
+////  DAC output observation
+////------------------------------------------------------
+//    always @(negedge dac_cs) begin
+//        sclk = 0;
+//        dacsh <= 12'b0;
+//    end
+    
+//    event dac_sclk_12;
+//    always @(negedge dac_sclk) begin
+//        ndacsclk++;
+//        if(ndacsclk > 12 && ndacsclk < 25)
+//            -> dac_sclk_12;
+//    end
+    
+//    always @(dac_sclk_12 )
+//        dacsh <= {dacsh[nrbits-2:0], d0};
+    
+//    always @(posedge dac_cs)
+//        sigout <= dacsh;    
     initial begin
         clk = 1'b0;
         forever #hp clk = ~clk;
@@ -64,8 +84,12 @@ module tb();
     2 - sygnal sinusoidalny
     */
    initial begin
-    #0 ver = 1'b0;
-    #250000 ver = 1'b1;
-    #250000 ver = 2;
+    #0 ver = 2'b10;
+//    #250000 ver = 2'b1;
+//    #250000 ver = 2;
    end
+   
+   
+
+        
 endmodule
