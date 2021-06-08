@@ -16,7 +16,6 @@ module top #(parameter nrbit = 16, mdeep = 16)(
     01 - dane kwadratowe => albo maxValue albo zero
     10 - sinus
     */
-    input logic [1:0] ver, 
     output sclk,
     output logic d0,
     output sync,
@@ -29,7 +28,11 @@ wire [3 : 0] s_axi_awaddr, s_axi_araddr;
 wire [31 : 0] s_axi_wdata, s_axi_rdata;
 wire [1 : 0] s_axi_bresp, s_axi_rresp;
 wire [3 : 0] s_axi_wstrb = 4'b1111;
-    
+wire [1:0] ver;
+
+logic [$clog2(mdeep)-1:0] adr;
+logic [7:0] dato,dati;
+
  typedef enum {idle, start_g, wait1, start_spi, data} states_e;
  states_e st, nst;
  
@@ -75,6 +78,7 @@ SPI zaczyna prac?, gdy st == star_spi
         .outputValue(generatedValue)
         );
         
+decoder vd (.clk(clk), .rst(rst), .dat_in(dato), .dat_decoded(ver));
 
 axi_uartlite_slave uart_axi (
   .s_axi_aclk(clk),        // input wire s_axi_aclk
@@ -105,9 +109,6 @@ axi_uartlite_slave uart_axi (
   .tx(tx)                        // output wire tx  
 );
 
-
-logic [$clog2(mdeep)-1:0] adr;
-logic [7:0] dato,dati;
 
 master_axi # (.deep(mdeep)) master ( .clk(clk), .rst(rst),
     .wadr(s_axi_awaddr), .awvld(s_axi_awvalid), .awrdy(s_axi_awready),

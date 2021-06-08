@@ -21,21 +21,23 @@
 
 
 module tb();
-    localparam hp = 5, d = 7;
+    localparam d = 20, hp = 5, fclk = 100_000_000, br = 230400, size = 8;
+    localparam ratio = fclk / br - 1;
     localparam nrbit = 16;
-    logic clk, rst, str;
+    logic clk, rst, str, rx, tx;
     logic sclk, d0, sync;
-    logic [1:0] ver;
     logic [7:0] generatedValue;
     logic valueIsSent;
-    top #(.nrbit(nrbit)) topmodule (
+    wire fint;
+    top #(.nrbit(nrbit) , .mdeep(d)) topmodule (
      .clk(clk),
      .rst(rst),
      .str(str),
-     .ver(ver),
      .sclk(sclk),
      .d0(d0),
-     .sync(sync)
+     .sync(sync),
+     .tx(tx),
+     .rx(rx)
      );
     
 ////------------------------------------------------------
@@ -78,18 +80,19 @@ module tb();
         #5 str = 1'b0; 
     end
 
-    /*
-    Ver poczatkowo ustawiony na 0 - sygnal liniowy
-    1 - sygnal kwadratowy
-    2 - sygnal sinusoidalny
-    */
-   initial begin
-    #0 ver = 2'b10;
-//    #250000 ver = 2'b1;
-//    #250000 ver = 2;
-   end
-   
-   
+//    /*
+//    Ver poczatkowo ustawiony na 0 - sygnal liniowy
+//    1 - sygnal kwadratowy
+//    2 - sygnal sinusoidalny
+//    */
+//   initial begin
+//    #0 ver = 2'b10;
+////    #250000 ver = 2'b1;
+////    #250000 ver = 2;
+//   end
 
+   
+   
+    simple_transmitter #(.nb(size), .deep(d),.ratio(ratio)) transmitter(.clk(clk), .rst(rst), .str(str), .trn(rx), .fin(fint));
         
 endmodule
